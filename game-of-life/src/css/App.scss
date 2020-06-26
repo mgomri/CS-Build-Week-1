@@ -1,0 +1,33 @@
+@mixin button($width, $height, $border, $radius, $font, $color, $background, $hovercolor, $hoverbackground ) {
+    width:$width;
+    height:$height;
+    border:$border;
+    border-radius:$radius;
+    font:$font;
+    color: $color;
+    background-color:$background;
+    &:hover{
+      color: $hovercolor;
+      background-color: $hoverbackground;  
+    }
+  }
+
+@mixin display($type, $flow, $justify, $align){
+  display:$type;
+  flex-flow:$flow;
+  justify-content:$justify;
+  align-items:$align;
+};
+
+  .app{
+      
+      @include display(flex, column nowrap, center, center);
+      .btn-div{
+        width:100%;
+        @include display(flex, row nowrap, center, center)
+      }
+      .btn {
+        @include button(10%, 2.8rem, 2px black solid, 10px, bold 1.5rem Helvetica,black,
+         white, white, black)
+      }
+  }
